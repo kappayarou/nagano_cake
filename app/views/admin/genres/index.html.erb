@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="mt-4">ジャンル新規登録</h3>
+      <%= form_with model: @genre, url: admin_genres_path, local:true do |f| %>
+        <label for="genre_name">ジャンル名</label><br>
+        <%= f.text_field :name, class: 'gnre_name' %><br>
+        <br>
+        <%= f.submit 'ジャンル作成' %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h3 class="mt-4">ジャンル一覧</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>ジャンル名</th>
+            <th>作成日</th>
+            <th>更新日</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+            <tr>
+              <td><%= genre.name %></td>
+              <td><%= genre.created_at.strftime('%Y/%m/%d') %></td>
+              <td><%= genre.updated_at.strftime('%Y/%m/%d') %></td>
+              <td><%= link_to "編集", edit_admin_genre_path(genre.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <h3 class="mt-4">ジャンル編集</h3>
+      <%= form_with model: @genre, url: admin_genre_path, local:true do |f| %>
+        <label for="genre_name">ジャンル名</label><br>
+        <%= f.text_field :name, class: 'gnre_name' %><br>
+        <br>
+        <%= f.submit 'ジャンル更新' %>
+      <% end %>
+    </div>
+  </div>
+</div>
