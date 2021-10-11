@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto create">
+      <h3 class="mx-auto mt-4">商品情報編集</h3>
+      <%= form_with model: @item, url: admin_item_path(@item.id), local:true do |f| %>
+        <label for="item_name", class="create">商品名</label><br>
+        <%= f.text_field :name %><br>
+        <label for="item_genre_id", class="create">ジャンルID</label><br>
+        <%= f.text_field :genre_id %><br>
+        <label for="item_image", class="create">商品画像</label><br>
+        <%= f.attachment_field :image %><br>
+        <label for="item_introduction", class="create">イントロダクション</label><br>
+        <%= f.text_area :introduction %><br>
+        <label for="item_price", class="create">値段</label><br>
+        <%= f.text_field :price %><br>
+        <%= f.submit '商品情報更新', class:"create" %>
+      <% end %>
+    </div>
+  </div>
+</div>

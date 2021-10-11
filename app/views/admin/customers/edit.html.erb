@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto create">
+      <h3 class="mx-auto mt-4">会員情報編集</h3>
+      <%= form_with model: @customer, url: admin_customer_path(@customer.id), local:true do |f| %>
+        <label for="customer_last_name", class="create">姓</label><br>
+        <%= f.text_field :last_name %><br>
+        <label for="customer_first_name", class="create">名</label></label><br>
+        <%= f.text_field :first_name %><br>
+        <label for="customer_last_name_kana", class="create">セイ</label><br>
+        <%= f.attachment_field :last_name_kana %><br>
+        <label for="customer_first_name_kana", class="create">メイ</label><br>
+        <%= f.text_area :first_name_kana %><br>
+        <label for="customer_email", class="create">メールアドレス</label><br>
+        <%= f.text_field :email %><br>
+        <label for="customer_postal_code", class="create">郵便番号</label><br>
+        <%= f.text_field :postal_code %><br>
+        <label for="customer_address", class="create">住所</label><br>
+        <%= f.text_field :address %><br>
+        <label for="customer_telephone_number", class="create">電話番号</label><br>
+        <%= f.text_field :telephone_number %><br>
+        <label for="customer_is_active", class="create">会員ステータス</label><br>
+        <%= f.text_field :is_active %><br>
+        <%= f.submit '会員情報更新', class:"create" %>
+      <% end %>
+    </div>
+  </div>
+</div>

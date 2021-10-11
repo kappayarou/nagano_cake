@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 show">
+        <h4>商品名：　　　　　　　<%= @item.name %></h4><br>
+        <h4>ジャンル：　　　　　　<%= @item.genre.name %></h4><br>
+        <h4>商品画像：　　　　　　<%= attachment_image_tag @item, :image, :fill, 300, 300, format: 'jpeg' %></h4><br>
+        <h4>イントロダクション：　<%= @item.introduction %></h4><br>
+        <h4>値段：　　　　　　　　<%= @item.price %>円</h4><br>
+        <h4>作成日：　　　　　　　<%= @item.created_at.strftime('%Y/%m/%d') %></h4><br>
+        <h4>更新日：　　　　　　　<%= @item.updated_at.strftime('%Y/%m/%d') %></h4><br>
+        <h4><%= link_to "編集", edit_admin_item_path(@item.id) %></h4><br>
+    </div>
+  </div>
+</div>
