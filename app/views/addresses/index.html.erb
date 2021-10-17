@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h5 class="addresses_title">配送先登録/一覧</h5>
+    </div>
+    <div class="col-md-9"></div>
+  </div class="row">
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <%= form_with model: @address, url: addresses_path, local: true do |f| %>
+        <table class="table addresses-table">
+          <tbody>
+            <tr>
+              <td class="addresses-table-head">郵便番号(ハイフンなし)</td>
+              <td class="addresses-table-first"><%= f.text_field :postal_code, autofocus: true, placeholder: "0000000", class:"addresses-form" %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td colspan="2"><%= f.text_field :address, class:"addresses-form-address" %></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>宛名</td>
+              <td><%= f.text_field :name, class:"addresses-form" %></td>
+              <td class="addresses-submit"><%= f.submit "新規登録", class:"btn btn-success" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="address-table-border address-table-head">郵便番号</th>
+            <th class="address-table-border address-table-head">住所</th>
+            <th class="address-table-border address-table-head">宛名</th>
+            <th class="address-table-border address-table-head"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+            <tr>
+              <td class="address-table-border"><%= address.postal_code %></td>
+              <td class="address-table-border"><%= address.address %></td>
+              <td class="address-table-border"><%= address.name %></td>
+              <td class="address-table-border address-index-button"><%= link_to "編集する", edit_address_path(address.id), class:"btn btn-success address-index-link-button" %>　<%= link_to "削除する", address_path(address.id), method: :delete, class:"btn btn-danger address-index-link-button" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

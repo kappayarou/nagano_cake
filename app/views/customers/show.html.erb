@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <h4 class="mypage_title">マイページ</h4>
+    </div>
+    <div class="col-md-7"></div>
+  </div class="row">
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <table class="mypage-button-table">
+        <tbody>
+          <tr>
+            <td class="mypage-button-text">
+              登録情報
+            </td>
+            <td>
+              <%= link_to "編集する", edit_customers_path, class:"btn btn-success mypage-button" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-bordered border-dark mypage-table">
+        <tbody>
+          <tr>
+            <td class="mypage-table-title">氏名</td>
+            <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+          </tr>
+          <tr>
+            <td class="mypage-table-title">カナ</td>
+            <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <td class="mypage-table-title">郵便番号</td>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <td class="mypage-table-title">住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td class="mypage-table-title">電話番号</td>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <td class="mypage-table-title">メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6"></div>
+      <table class="mypage-button-table">
+        <tbody>
+          <tr>
+            <td class="mypage-button-text-index">
+              配送先
+            </td>
+            <td>
+              <%= link_to "一覧を見る", edit_customers_path, class:"btn btn-primary mypage-button-index" %>
+            </td>
+          </tr>
+          <tr>
+            <td>　</td>
+          </tr>
+          <tr>
+            <td class="mypage-button-text-index">
+              注文履歴
+            </td>
+            <td>
+              <%= link_to "一覧を見る", edit_customers_path, class:"btn btn-primary mypage-button-index" %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <div class="col-md-6"></div>
+  </div>
+
+</div>

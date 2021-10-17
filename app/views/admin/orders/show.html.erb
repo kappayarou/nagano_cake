@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 show">
+        <h4>注文ID：　　　　　　　<%= @order.id %></h4><br>
+        <h4>会員名：　　　　　　　<%= @order.customer.last_name @order.customer.first_name %></h4><br>
+        <h4>郵便番号：　　　　　　<%= @order.postal_code %></h4><br>
+        <h4>住所：　　　　　　　　<%= @order.address %></h4><br>
+        <h4>宛名：　　　　　　　　<%= @order.name %></h4><br>
+        <h4>注文ステータス：　　　<%= @order.status %></h4><br>
+        <h4>送料：　　　　　　　　<%= @order.postage %></h4><br>
+        <h4>請求金額：　　　　　　<%= @order.billing %></h4><br>
+        <h4>支払い方法：　　　　　<%= @order.payment_methods_i18n[:credit_card] %></h4><br>
+        <h4>作成日：　　　　　　　<%= @order.created_at.strftime('%Y/%m/%d') %></h4><br>
+        <h4>更新日：　　　　　　　<%= @order.updated_at.strftime('%Y/%m/%d') %></h4><br>
+        <h4><%= link_to "編集", edit_admin_order_path(@order.id) %></h4><br>
+    </div>
+  </div>
+</div>

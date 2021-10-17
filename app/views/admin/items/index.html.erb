@@ -1,27 +1,45 @@
 <div class="container">
+  <%= render 'homes/genre_search', genres: @genres %>
+  
+  <div class="row">
+    <div class="col-md-4">
+      <h4 class="item-index-title">商品一覧</h4>
+      <br>
+    </div>
+    <div class='col-md-8 plus-icon'>
+      <%= link_to "⊕", new_admin_item_path %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-12">
-      <h3 class="mt-4">商品一覧</h3>
-      <table class="table table-hover table-inverse">
-        <thead>
+      <table class="table table-hover table-inverse items-index">
+        <thead class="thead-light">
           <tr>
+            <th>商品ID</th>
             <th>商品名</th>
+            <th>税抜価格</th>
             <th>ジャンル</th>
-            <th>作成日</th>
-            <th>更新日</th>
+            <th>ステータス</th>
           </tr>
         </thead>
         <tbody>
           <% @items.each do |item| %>
             <tr>
+              <td><%= item.id %></td>
               <td><%= link_to item.name, admin_item_path(item) %></td>
+              <td><%= item.price %>円</td>
               <td><%= item.genre.name %></td>
-              <td><%= item.created_at.strftime('%Y/%m/%d') %></td>
-              <td><%= item.updated_at.strftime('%Y/%m/%d') %></td>
+              <% if item.is_active %>
+                <td>販売中</td>
+              <% else %>
+                <td>販売停止中</td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <%= paginate @items %>
     </div>
   </div>
 </div>

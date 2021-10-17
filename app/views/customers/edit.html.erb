@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="mypage_title ml-5">会員情報編集</h4>
+    </div>
+    <div class="col-md-9"></div>
+  </div class="row">
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-11">
+      <%= form_with model: @customer, url: customers_path, local: true do |f| %>
+        <table class="table mypage-edit-table">
+          <tbody>
+            <tr>
+              <td class="mypage-table-head">氏名</td>
+              <td class="mypage-table-first"><%= f.text_field :last_name, autofocus: true %></td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td><%= f.text_field :last_name_kana %></td>
+              <td><%= f.text_field :first_name_kana %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td><%= f.text_field :postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td colspan="3"><%= f.text_field :address, class:"mypage-edit-address" %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= f.text_field :telephone_number %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email %></td>
+            </tr>
+            <tr>
+              <td>　</td>
+              <td><%= f.submit "編集内容を保存", class:"btn btn-success mypage-edit-submit" %></td>
+              <td><%= link_to "退会する", customers_alert_path, class:"btn btn-danger mypage-edit-alert" %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

@@ -1,5 +1,11 @@
 class Admin::ItemsController < ApplicationController
 
+  before_action :tax_rate
+
+  def tax_rate
+    @tax_rate = 1.1
+  end
+
   def new
     @item = Item.new
   end
@@ -11,7 +17,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
   end
 
   def show
@@ -31,7 +37,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :genre_id, :image, :introduction, :price)
+    params.require(:item).permit(:name, :genre_id, :image, :introduction, :price, :is_active)
   end
 
 end

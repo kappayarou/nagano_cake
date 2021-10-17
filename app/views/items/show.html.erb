@@ -1,0 +1,17 @@
+<div class="container">
+  <%= render 'homes/genre_search', genres: @genres %>
+
+    <div class="col-md-4">
+      <%= attachment_image_tag @item, :image, :fill, 300, 200, format: 'jpeg' %><br>
+    </div>
+    <div class="col-md-5 customer-show-field">
+      <h4 class="customer-show-title"><%= @item.name %></h4>
+      <div class="customer-show-introduction-field">
+        <h5 class="customer-show-introduction"><%= @item.introduction %></h5>
+      </div>
+      <div class="customer-show-price-field">
+        <h4>¥<%= number_with_delimiter(@item.price * @tax_rate).to_i %></h4><h6>(税込み)</h6>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <%= render 'homes/genre_search', genres: @genres %>
+
+    <div class="col-md-9">
+      <div class="customer-items-title">
+        <h3>商品一覧</h3>
+        <h5>(全<%= @item_count %>件)</h5>
+      </div>
+
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col-md-3 customer-items">
+            <%= link_to item_path(item.id) do %>
+              <div>
+                  <%= attachment_image_tag item, :image, :fill, 150, 100, format: 'jpeg' %>
+              </div>
+              <div>
+                <%= item.name %>
+              </div>
+              <duv>
+                ¥<%= number_with_delimiter (item.price * @tax_rate).to_i %>
+              </duv>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="customer-items-kaminari">
+          <%= paginate @items %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -18,10 +18,470 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.create {
+header {
+  margin-bottom: 40px;
+}
+
+.registration {
+  margin-top: 30px;
+}
+
+.devise-outer {
+  text-align: center;
+}
+
+.devise-inner {
+  text-align: left;
+}
+
+.genre-title {
+  margin-top: 0px !important;
+  margin-left: 50px;
+  width: 25%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.genre {
+  margin-left: 30px;
+}
+
+.genre-create-all {
+  margin-top: 40px;
+}
+
+.genre-create {
+  margin-left: 60px;
+}
+
+.genre-edit {
+  margin-left: 100px;
+}
+
+
+.admin-button {
+  width: 30%;
+}
+
+.item-index-title {
+  width: 50%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.plus-icon {
+  font-size: 50px;
+  text-align: right;
+}
+
+.item-create-title {
+  width: 30%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.item-create {
+  margin-left: 100px;
+}
+
+.item-create-element {
+  margin-left: 50px;
+}
+
+.item-show-title {
+  margin-left: 100px;
+  margin-bottom: 50px;
+  width: 40%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.table-noborder {
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}
+
+.items-index th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+}
+
+.items-index td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.item-show {
+
+}
+
+.item-show-edit {
+  margin-left: 100px;
+  width: 25%;
+}
+
+.table-noborder td {
+  border-top: 0px !important;
+}
+
+.create-button {
+  margin-left: 150px;
+}
+
+.item-edit-title {
+  width: 20%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.sign-in-title {
+  width: 20%;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.sign-in-form {
+  margin-left: 150px;
+}
+
+.sign-in-button {
+  margin-left: 150px;
+}
+
+.top-table-outer {
+  border: solid 2px;
+  border-color: black !important;
+  width: 80%;
+}
+
+.top-table-outer td {
+  border: none !important;
+}
+
+.top-border-head {
+  border-bottom: solid 2px black !important;
+  text-align: center;
+}
+
+.top-text {
+  margin: 50px 40px 50px 130px;
+  padding: 30px 0 30px 3px;
+  border: solid black 1px;
+}
+
+.top-new-item {
+  margin-top: 5px;
+}
+
+.top-new-item-text {
+  margin-top: 10px;
+}
+
+.top-items-link {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.about-title {
+  font-size: 80px;
+  text-align: center;
+}
+
+.about-body {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.customer-address-form {
+  width: 81%;
+}
+
+.customer-sign-up {
+  font-size: 20px;
+  font-weight: bold;
+  width: 70%;
+  height: 30%;
+  padding: 0 !important;
+}
+
+.customer-new-title {
+  margin-left: 70px;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.customer-new-link-title {
+  margin-left: 30px;
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 70%;
+}
+
+.customer-new-link {
+  margin-left: 90px;
+  font-size: 18px;
+}
+
+.customer-new-title-sub {
+  margin-left: 90px;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.customer-session-form {
+  width: 80%;
+}
+
+.customer-session-label {
+  width: 20%;
+}
+
+.customer-log-in {
+  font-size: 18px;
+  font-weight: bold;
+  width: 27%;
+}
+
+.customer-button {
+  height: 50px;
+}
+
+.customer-session-link-title {
+  margin-left: 70px;
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 70%;
+}
+
+.customer-session-link {
+  margin-left: 200px;
+  font-size: 18px;
+}
+
+.mypage_title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+}
+
+.mypage-button-table {
+  width: 60%;
+  margin-left: 15px;
+}
+
+.mypage-button-text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.mypage-button {
+  padding:  4% 20% 4% 20%;
+  text-align: center;
+}
+
+.mypage-button-index {
+  text-align: center;
+  width: 30%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.mypage-button-text-index {
+  font-weight: bold;
+  font-size: 20px;
+  width: 20%;
+}
+
+.mypage-table {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.mypage-table td {
+  border: solid black 1px !important;
+}
+
+.mypage-table-title {
+ background-color: #DDDDDD;
+ width: 25%;
+}
+
+.mypage-edit-table td {
+  border: none !important;
+}
+
+.mypage-edit-address {
+  width: 70%;
+}
+
+.mypage-table-head {
+  width: 17%;
+}
+
+.mypage-table-first {
+  width: 23%;
+}
+
+.mypage-edit-submit {
+  font-weight: bold;
+  width: 120%;
+}
+
+.mypage-edit-alert {
+  font-weight: bold;
+  width: 18%;
+  margin-left: 200px;
+}
+
+.alert-title {
+  margin-top: 100px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert-body {;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.mypage-alert-table td {
+  border: none !important;
+}
+
+.mypage-alert-table {
+  width: 20%;
+  margin: auto;
+}
+
+.addresses_title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+  margin-left: 80px;
+}
+
+.addresses-table-head {
+  width: 25%;
+}
+
+.addresses-table-first {
+  width: 70%;
+}
+
+.addresses-table {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.addresses-table td {
+  border: none !important;
+}
+
+.addresses-form {
+  width: 45%;
+}
+
+.addresses-form-address {
+  width: 86%;
+}
+
+.addresses-submit {
+  width: 3%;
+}
+
+.addresses-button {
+  margin-left: 30px;
+}
+
+.address-table-border {
+  border: solid black 1px !important;
+}
+
+.address-index-button {
+  text-align: center;
+}
+
+.address-index-link-button {
+  font-size: 15px !important;
+}
+
+.address-table-head {
+  background-color: #DDDDDD;
+}
+
+.addresses-edit-submit {
+  width: 3%;
+  margin-left: 100px;
+}
+
+.addresses-edit-table {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.addresses-edit-table td {
+  border: none !important;
+}
+
+.addresses-edit-head {
+  width: 23%;
+}
+
+.addresses-edit-first {
+  width: 57%;
+}
+
+.addresses-edit-address {
+  width: 100%;
+}
+
+.addresses-edit-form {
+  width: 42%;
+}
+
+.edit-extra {
+  width: 20%;
+}
+
+.customer-items-title {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.customer-items-title h5{
+  margin: auto 0 0.5rem 5px !important;
+}
+
+.customer-items {
+  margin-bottom: 30px;
+}
+
+.customer-items-kaminari {
+  margin-top: 70px;
+  margin-left: 35%;
+}
+
+.customer-show-title {
+  font-weight: bold;
+}
+
+.customer-show-field {
+}
+
+.customer-show-introduction-field {
+  height: 100px;
+}
+
+.customer-show-introduction {
   margin-top: 20px;
 }
 
-.show {
-  margin-top: 30px;
+.customer-show-price-field {
+  display: flex;
+}
+
+.customer-show-price-field h6 {
+  margin: auto 0 0.5rem 5px !important;
 }
