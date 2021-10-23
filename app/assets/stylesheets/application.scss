@@ -485,3 +485,43 @@ header {
 .customer-show-price-field h6 {
   margin: auto 0 0.5rem 5px !important;
 }
+
+.customer-show-form {
+  margin-top: 30px;
+}
+
+.customer-show-submit {
+  margin-left: 40px;
+}
+
+.cart_items_title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+}
+
+.cart_items-table-border {
+  border: solid black 1px !important;
+}
+
+.cart_items-table-head {
+  background-color: #DDDDDD;
+}
+
+.cart_items-index-button {
+  text-align: center;
+}
+
+.cart_items-link-button {
+  font-size: 15px !important;
+  font-weight: bold;
+}
+
+.cart_items-index-button-head {
+  width: 15%;
+}
+
+.cart_items-destroy_all-button {
+  margin-bottom: 20px;
+  margin-left: 35%;
+}

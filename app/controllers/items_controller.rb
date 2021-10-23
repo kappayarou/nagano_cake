@@ -18,6 +18,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @cart_item = CartItem.new
+    list = (1..10).to_a
+    @item_amount = ["個数選択", list].flatten
   end
 
 end

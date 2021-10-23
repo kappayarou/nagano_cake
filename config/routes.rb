@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   get '/customers/leave' => 'customers#leave'
 
   resources :addresses, only:[:edit, :create, :update, :destroy, :index]
+
   resources :items, only:[:index, :show]
+
+  resources :cart_items, only:[:index, :update, :destroy, :create]
+  get '/cart_items/destroy_all' => 'cart_items#destroy_all'
 
 end

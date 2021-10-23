@@ -4,6 +4,7 @@
     <div class="col-md-4">
       <%= attachment_image_tag @item, :image, :fill, 300, 200, format: 'jpeg' %><br>
     </div>
+
     <div class="col-md-5 customer-show-field">
       <h4 class="customer-show-title"><%= @item.name %></h4>
       <div class="customer-show-introduction-field">
@@ -11,6 +12,14 @@
       </div>
       <div class="customer-show-price-field">
         <h4>¥<%= number_with_delimiter(@item.price * @tax_rate).to_i %></h4><h6>(税込み)</h6>
+      </div>
+      <div class="customer-show-form">
+        <%= form_with model: @cart_item, local: true do |f| %>
+          <%= f.hidden_field :item_id, value: @item.id %>
+          <%= f.hidden_field :customer_id, value: current_customer.id %>
+          <%= f.select :amount, @item_amount, disabled: "個数選択", selected: "個数選択" %>
+          <%= f.submit "カートに入れる", class:"btn btn-success customer-show-submit" %>
+        <% end %>
       </div>
     </div>
   </div>
