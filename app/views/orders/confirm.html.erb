@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h5 class="confirm-title">注文情報確認</h5>
+    </div>
+    <div class="col-md-9"></div>
+  </div class="row">
+
+  <div class="row">
+    <div class="col-md-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="confirm-table-border confirm-table-head">商品名</th>
+            <th class="confirm-table-border confirm-table-head">単価(税込)</th>
+            <th class="confirm-table-border confirm-table-head">数量</th>
+            <th class="confirm-table-border confirm-table-head">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% billing = [] %>
+          <% @cart_items.each do |cart_item| %>
+            <% subtotal = (cart_item.item.price * cart_item.amount).to_i %>
+            <% billing.append(subtotal) %>
+            <tr>
+              <td class="confirm-table-border"><%= attachment_image_tag cart_item.item, :image, :fill, 60, 40, format: 'jpeg' %>　<%= cart_item.item.name %></td>
+              <td class="confirm-table-border"><%= cart_item.item.price %></td>
+              <td class="confirm-table-border"><%= cart_item.amount %></td>
+              <td class="confirm-table-border"><%= number_with_delimiter(subtotal) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td class="confirm-table-border confirm-table-head">送料</td>
+            <td class="confirm-table-border"><%= @postage %></td>
+          </tr>
+          <tr>
+            <td class="confirm-table-border confirm-table-head">商品合計</td>
+            <td class="confirm-table-border"><%= number_with_delimiter(billing.sum) %></td>
+          </tr>
+          <tr>
+            <td class="confirm-table-border confirm-table-head">請求金額</td>
+            <td class="confirm-table-border"><%= number_with_delimiter(billing.sum + @postage) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h5><b>支払方法</b>　<%= Order.payment_methods_i18n[@order.payment_method] %></h5>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h5><b>お届け先</b>　<%= @order.postal_code %> <%= @order.address %></h5>
+      <h5><%= "　　　　　 " %><%= @order.name %></h5>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-5"></div>
+    <div class="col-md-3">
+      <%= render "注文を確定する", :order, class:"btn btn-success" %>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

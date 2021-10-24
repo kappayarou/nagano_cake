@@ -525,3 +525,36 @@ header {
   margin-bottom: 20px;
   margin-left: 35%;
 }
+
+.no-border {
+  border: none !important;
+}
+
+.customer-order-table-first {
+  width: 20%;
+}
+
+.customer-order-postal_code-form {
+  width: 27%;
+}
+
+.customer-order-address-form {
+  width: 60%;
+}
+
+.customer-order-button {
+  text-align: center;
+}
+
+.confirm-title {
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.confirm-table-border {
+  border: solid black 1px !important;
+}
+
+.confirm-table-head {
+  background-color: #DDDDDD;
+}
