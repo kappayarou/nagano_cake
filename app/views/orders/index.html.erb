@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h5 class="customer-orders-index-title">ショッピングカート</h5>
+    </div>
+    <div class="col-md-9"></div>
+  </div class="row">
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="orders-table-border orders-table-head">注文日</th>
+            <th class="orders-table-border orders-table-head">配送先</th>
+            <th class="orders-table-border orders-table-head">注文商品</th>
+            <th class="orders-table-border orders-table-head">支払金額</th>
+            <th class="orders-table-border orders-table-head">ステータス</th>
+            <th class="orders-table-border orders-table-head orders-index-button-head">注文詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="orders-table-border"><%= order.created_at %></td>
+              <td class="orders-table-border">
+                <%= order.postal_code %><br>
+                <%= order.address %><br>
+                <%= order.name %>
+              </td>
+              <td class="orders-table-border">
+                <% order.order_details.items.each do |item| %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+              <td class="orders-table-border"><%= order.billing %></td>
+              <td class="orders-table-border"><%= Order.statuses_i18n[order.status] %></td>
+              <td class="orders-table-border orders-show-button"><%= link_to "表示する", order_path(order.id), class:"btn btn-primary orders-link-button" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

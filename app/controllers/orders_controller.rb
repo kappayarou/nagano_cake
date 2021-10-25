@@ -35,21 +35,30 @@ class OrdersController < ApplicationController
     @order.postage = @postage
     billing = billing.sum + @postage
     @order.billing = billing
+
+    @confirm = Order.new
   end
 
   def order
-    render :create
   end
 
   def create
-    @order.save
-    current_customer.cart_items.destroy_all
-    redirect_to orders_path
+    @confirm = Order.new(order_params)
+    @confirm.customer_id = current_customer.id
+    if @confirm.save
+      current_customer.cart_items.destroy_all
+      redirect_to orders_order_path
+    end
   end
+
+  def index
+    @orders = current_customer.orders
+  end
+
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :billing)
   end
 
 end
