@@ -23,4 +23,10 @@ class ItemsController < ApplicationController
     @item_amount = ["個数選択", list].flatten
   end
 
+  def genre_finding
+    genre = Genre.find(params[:id])
+    @items = genre.items
+    @item_count = @items.count
+  end
+
 end

@@ -1,5 +1,11 @@
 class OrdersController < ApplicationController
 
+  before_action :tax_rate
+
+  def tax_rate
+    @tax_rate = 1.1
+  end
+
   def new
     @order = Order.new
     postal_values = current_customer.addresses
@@ -27,7 +33,7 @@ class OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     billing =[]
     @cart_items.each do |cart_item|
-      subtotal = (cart_item.item.price * cart_item.amount).to_i
+      subtotal = (cart_item.item.price * @tax_rate * cart_item.amount).to_i
       billing.append(subtotal)
     end
     @postage = 800
@@ -42,17 +48,34 @@ class OrdersController < ApplicationController
   def order
   end
 
+
   def create
-    @confirm = Order.new(order_params)
-    @confirm.customer_id = current_customer.id
-    if @confirm.save
-      current_customer.cart_items.destroy_all
-      redirect_to orders_order_path
+    confirm = Order.new(order_params)
+    confirm.customer_id = current_customer.id
+    if confirm.save
+      cart_items = current_customer.cart_items
+      cart_items.each do |cart_item|
+        order_detail = OrderDetail.new
+        order_detail.order_id = confirm.id
+        order_detail.item_id = cart_item.item.id
+        order_detail.amount = cart_item.amount
+        order_detail.price = confirm.billing
+        if order_detail.save
+          current_customer.cart_items.destroy_all
+          redirect_to order_orders_path
+        end
+      end
     end
   end
 
+
   def index
     @orders = current_customer.orders
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
 

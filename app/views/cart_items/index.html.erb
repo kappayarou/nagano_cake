@@ -24,11 +24,11 @@
         <tbody>
           <% billing = [] %>
           <% @cart_items.each do |cart_item| %>
-            <% subtotal = (cart_item.item.price * cart_item.amount).to_i %>
+            <% subtotal = (cart_item.item.price * @tax_rate * cart_item.amount).to_i %>
             <% billing.append(subtotal) %>
             <tr>
               <td class="cart_items-table-border"><%= attachment_image_tag cart_item.item, :image, :fill, 60, 40, format: 'jpeg' %>　<%= cart_item.item.name %></td>
-              <td class="cart_items-table-border"><%= cart_item.item.price %></td>
+              <td class="cart_items-table-border"><%= number_with_delimiter(cart_item.item.price * @tax_rate) %></td>
               <td class="cart_items-table-border">
                 <%= form_with model: cart_item, local: true do |f| %>
                   <%= f.select :amount, value: @list %>

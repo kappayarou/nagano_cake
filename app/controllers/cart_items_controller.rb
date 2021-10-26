@@ -1,5 +1,11 @@
 class CartItemsController < ApplicationController
 
+  before_action :tax_rate
+
+  def tax_rate
+    @tax_rate = 1.1
+  end
+
   def create
     cart_item = CartItem.new(cart_item_params)
     cart_items = current_customer.cart_items

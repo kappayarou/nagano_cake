@@ -31,7 +31,11 @@ Rails.application.routes.draw do
 
   resources :addresses, only:[:edit, :create, :update, :destroy, :index]
 
-  resources :items, only:[:index, :show]
+  resources :items, only:[:index, :show] do
+    collection do
+      get :genre_finding
+    end
+  end
 
   resources :cart_items, only:[:index, :update, :destroy, :create]
   get '/cart_items/destroy_all' => 'cart_items#destroy_all'

@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
+      <%= form_with model: @order, url: confirm_orders_path, local: true do |f| %>
         <h6 class="mt-3"><b>支払い方法</b></h6>
         <div class="ml-4">
           <%= f.radio_button :payment_method, :credit_card, checked: true %> <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %><br>

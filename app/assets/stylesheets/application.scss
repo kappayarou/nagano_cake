@@ -564,10 +564,12 @@ header {
   text-align: center;
 }
 
-.customer-orders_index-title {
+.customer-orders-index-title {
   background-color: #DDDDDD;
   text-align: center;
   width: 80%;
+  margin-left: 60px;
+  margin-bottom: 40px;
 }
 
 .orders-table-border {
@@ -585,4 +587,11 @@ header {
 .orders-link-button {
   font-size: 15px !important;
   font-weight: bold;
+}
+
+.customer-orders-show-title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+  margin-left: 60px;
 }

@@ -11,3 +11,8 @@ ja:
         crafting: '製作中'
         posting_preparation: '発送準備中'
         posted: '発送済み'
+      craft_status:
+        impossible: '着手不可'
+        before_craft: '製作待ち'
+        crafting: '製作中'
+        complete: '製作完了'
