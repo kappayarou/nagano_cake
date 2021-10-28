@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 show">
-        <h4>セイ　メイ：　　　<%= @customer.last_name_kana　@customer.first_name_kana %></h4><br>
-        <h4>姓　名：　　　　　<%= @customer.last_name　@customer.first_name %></h4><br>
+        <h4>セイ　メイ：　　　<%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></h4><br>
+        <h4>姓　名：　　　　　<%= @customer.last_name %>　<%= @customer.first_name %></h4><br>
         <h4>メールアドレス：　<%= @customer.email %></h4><br>
         <h4>郵便番号：　　　　<%= @customer.postal_code %></h4><br>
         <h4>住所：　　　　　　<%= @customer.address %></h4><br>
-        <h4>電話番号：　　　　<%= @customer.telephone_number %>円</h4><br>
-        <h4>会員ステータス：　<%= @customer.is_active %></h4><br>
+        <h4>電話番号：　　　　<%= @customer.telephone_number %></h4><br>
+        <h4>会員ステータス：　<%= @customer_status %></h4><br>
         <h4>作成日：　　　　　<%= @customer.created_at.strftime('%Y/%m/%d') %></h4><br>
         <h4>更新日：　　　　　<%= @customer.updated_at.strftime('%Y/%m/%d') %></h4><br>
         <h4><%= link_to "編集", edit_admin_customer_path(@customer.id) %></h4><br>

@@ -24,7 +24,7 @@
             <% billing.append(subtotal) %>
             <tr>
               <td class="confirm-table-border"><%= attachment_image_tag cart_item.item, :image, :fill, 60, 40, format: 'jpeg' %>　<%= cart_item.item.name %></td>
-              <td class="confirm-table-border"><%= number_with_delimiter(cart_item.item.price * @tax_rate) %></td>
+              <td class="confirm-table-border"><%= number_with_delimiter(cart_item.item.price * @tax_rate).to_i %></td>
               <td class="confirm-table-border"><%= cart_item.amount %></td>
               <td class="confirm-table-border"><%= number_with_delimiter(subtotal) %></td>
             </tr>

@@ -1,28 +1,34 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-3">
+      <h4 class="admin-top-title">注文履歴一覧</h4>
+    </div>
+    <div class="col-md-9"></div>
+  </div>
+  <div class="row">
     <div class="col-md-12">
-      <h3>注文一覧</h3>
-      <table class="table table-hover table-inverse">
+      <table class="table admin-top-table">
         <thead>
           <tr>
-            <th>購入日時</th>
-            <th>購入者</th>
-            <th>注文個数</th>
-            <th>注文ステータス</th>
+            <th class="admin-top-table-head">購入日時</th>
+            <th class="admin-top-table-head">購入者</th>
+            <th class="admin-top-table-head">注文個数</th>
+            <th class="admin-top-table-head">注文ステータス</th>
           </tr>
         </thead>
         <tbody>
           <% @orders.each do |order| %>
             <tr>
               <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order.id) %></td>
-              <td><%= order.customer.last_name order.customer.first_name %></td>
+              <td><%= order.customer.last_name %> <%= order.customer.first_name %></td>
               <td><%= order.order_details.sum(:amount) %></td>
-              <td><%= order.status %></td>
+              <td><%= Order.statuses_i18n[order.status] %></td>
               <td></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+      <%= paginate @orders %>
     </div>
   </div>
 </div>

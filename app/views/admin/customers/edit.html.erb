@@ -2,27 +2,50 @@
   <div class="row">
     <div class="col-md-12 mx-auto create">
       <h3 class="mx-auto mt-4">会員情報編集</h3>
-      <%= form_with model: @customer, url: admin_customer_path(@customer.id), local:true do |f| %>
-        <label for="customer_last_name", class="create">姓</label><br>
-        <%= f.text_field :last_name %><br>
-        <label for="customer_first_name", class="create">名</label></label><br>
-        <%= f.text_field :first_name %><br>
-        <label for="customer_last_name_kana", class="create">セイ</label><br>
-        <%= f.attachment_field :last_name_kana %><br>
-        <label for="customer_first_name_kana", class="create">メイ</label><br>
-        <%= f.text_area :first_name_kana %><br>
-        <label for="customer_email", class="create">メールアドレス</label><br>
-        <%= f.text_field :email %><br>
-        <label for="customer_postal_code", class="create">郵便番号</label><br>
-        <%= f.text_field :postal_code %><br>
-        <label for="customer_address", class="create">住所</label><br>
-        <%= f.text_field :address %><br>
-        <label for="customer_telephone_number", class="create">電話番号</label><br>
-        <%= f.text_field :telephone_number %><br>
-        <label for="customer_is_active", class="create">会員ステータス</label><br>
-        <%= f.text_field :is_active %><br>
-        <%= f.submit '会員情報更新', class:"create" %>
-      <% end %>
+      <table class="table">
+        <%= form_with model: @customer, url: admin_customer_path(@customer.id), local:true do |f| %>
+          <tbody>
+            <tr>
+              <td class="mypage-table-head">会員ID</td>
+              <td class="mypage-table-first"><%= @customer.id %></td>
+            </tr>
+            <tr>
+              <td class="mypage-table-head">氏名</td>
+              <td class="mypage-table-first"><%= f.text_field :last_name, autofocus: true %></td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+            <tr>
+              <td>フリガナ</td>
+              <td><%= f.text_field :last_name_kana %></td>
+              <td><%= f.text_field :first_name_kana %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td><%= f.text_field :postal_code %></td>
+            </tr>
+            <tr>
+              <td>住所</td>
+              <td colspan="3"><%= f.text_field :address, class:"mypage-edit-address" %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= f.text_field :telephone_number %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email %></td>
+            </tr>
+            <tr>
+              <td>会員ステータス</td>
+              <td><%= f.radio_button :is_active, value: true %> 有効　<%= f.radio_button :is_active, value: false %> 退会</td>
+            </tr>
+            <tr>
+              <td>　</td>
+              <td><%= f.submit "変更を保存", class:"btn btn-success mypage-edit-submit" %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>

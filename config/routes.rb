@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       resources :genres, only:[:index, :create, :edit, :update]
       resources :items, only:[:index, :new, :create, :show, :edit, :update]
       resources :customers, only:[:index, :show, :edit, :update]
-      resources :orders, only:[:show]
+      resources :orders, only:[:show, :update]
     root to: 'homes#top'
   end
 
@@ -23,19 +23,17 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/about' => 'homes#about'
 
-  resources :items, only:[:index, :show]
+  resources :items, only:[:index, :show] do
+    collection do
+      get :genre_finding
+    end
+  end
 
   resource :customers, only:[:show, :edit, :update]
   get '/customers/alert' => 'customers#alert'
   get '/customers/leave' => 'customers#leave'
 
   resources :addresses, only:[:edit, :create, :update, :destroy, :index]
-
-  resources :items, only:[:index, :show] do
-    collection do
-      get :genre_finding
-    end
-  end
 
   resources :cart_items, only:[:index, :update, :destroy, :create]
   get '/cart_items/destroy_all' => 'cart_items#destroy_all'

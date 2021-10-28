@@ -1,18 +1,46 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 show">
-        <h4>注文ID：　　　　　　　<%= @order.id %></h4><br>
-        <h4>会員名：　　　　　　　<%= @order.customer.last_name @order.customer.first_name %></h4><br>
-        <h4>郵便番号：　　　　　　<%= @order.postal_code %></h4><br>
-        <h4>住所：　　　　　　　　<%= @order.address %></h4><br>
-        <h4>宛名：　　　　　　　　<%= @order.name %></h4><br>
-        <h4>注文ステータス：　　　<%= @order.status %></h4><br>
-        <h4>送料：　　　　　　　　<%= @order.postage %></h4><br>
-        <h4>請求金額：　　　　　　<%= @order.billing %></h4><br>
-        <h4>支払い方法：　　　　　<%= @order.payment_methods_i18n[:credit_card] %></h4><br>
-        <h4>作成日：　　　　　　　<%= @order.created_at.strftime('%Y/%m/%d') %></h4><br>
-        <h4>更新日：　　　　　　　<%= @order.updated_at.strftime('%Y/%m/%d') %></h4><br>
-        <h4><%= link_to "編集", edit_admin_order_path(@order.id) %></h4><br>
+    <div class="col-md-3">
+      <h5 class="admin-order-show">注文履歴詳細</h5>
+    </div>
+    <div class-"col-md-9"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table admin-order-show-table">
+        <tbody>
+          <tr>
+            <% customer_name = @order.customer.last_name + " " + @order.customer.first_name %>
+            <td class="admin-order-show-table admin-order-show-table-first"><b>購入者</b></td>
+            <td class="admin-order-show-table"><%= link_to customer_name, admin_customer_path(@order.customer.id) %></td>
+          </tr>
+          <tr>
+            <td class="admin-order-show-table admin-order-show-table-first"><b>注文日</b></td>
+            <td class="admin-order-show-table"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <% postal = @order.postal_code + " " + @order.address %>
+            <td class="admin-order-show-table admin-order-show-table-first"><b>配送先</b></td>
+            <td class="admin-order-show-table">
+              〒 <%= postal %><br>
+              <%= @order.name %>
+            </td>
+          </tr>
+          <tr>
+            <td class="admin-order-show-table admin-order-show-table-first"><b>支払い方法</b></td>
+            <td class="admin-order-show-table"><%= Order.payment_methods_i18n[@order.payment_method] %></td>
+          </tr>
+          <tr>
+            <td class="admin-order-show-table admin-order-show-table-first"><b>注文ステータス</b></td>
+            <td class="admin-order-show-table">
+              <%= form_with model: @order, url: admin_order_path, local: true do |f| %>
+                <%= f.select :status, @statuses %> <%= f.submit "更新", class:"btn btn-success" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

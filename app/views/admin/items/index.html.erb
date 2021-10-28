@@ -30,9 +30,9 @@
               <td><%= item.price %>円</td>
               <td><%= item.genre.name %></td>
               <% if item.is_active %>
-                <td>販売中</td>
+                <td class="admin-items-true">販売中</td>
               <% else %>
-                <td>販売停止中</td>
+                <td class="admin-items-false">販売停止中</td>
               <% end %>
             </tr>
           <% end %>

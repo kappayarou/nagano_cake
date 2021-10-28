@@ -22,6 +22,23 @@ header {
   margin-bottom: 40px;
 }
 
+ul {
+  list-style: none;
+}
+
+.header-icon {
+  margin-left: -150px;
+  margin-top: 10px;
+}
+
+.foot {
+  margin: 50px auto 50px auto;
+}
+
+.footer-property {
+  margin-top: 20px;
+}
+
 .registration {
   margin-top: 30px;
 }
@@ -32,6 +49,17 @@ header {
 
 .devise-inner {
   text-align: left;
+}
+
+.admin-top-title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.admin-top-table-head {
+  background-color: #DDDDDD;
 }
 
 .genre-title {
@@ -67,6 +95,16 @@ header {
   width: 50%;
   background-color: #DDDDDD;
   text-align: center;
+}
+
+.admin-items-true {
+  color: #00FF00;
+  font-weight: bold;
+}
+
+.admin-items-false {
+  color: #808080;
+  font-weight: bold;
 }
 
 .plus-icon {
@@ -561,6 +599,7 @@ header {
 
 .customer-order {
   margin-top: 250px;
+  margin-bottom: 300px;
   text-align: center;
 }
 
@@ -594,4 +633,19 @@ header {
   text-align: center;
   width: 80%;
   margin-left: 60px;
+}
+
+.admin-order-show {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+}
+
+.admin-order-show-table {
+  border: none !important;
+  font-size: 20px !important;
+}
+
+.admin-order-show-table-first {
+  width: 20%;
 }

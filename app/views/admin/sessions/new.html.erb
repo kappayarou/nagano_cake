@@ -5,7 +5,7 @@
     <br>
 
     <div class="sign-in-form">
-      <%= form_with model: @admin, url: admin_registration_path, local: true do |f| %>
+      <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
         <div class="row">
           <div class="col-md-2">
             <%= f.label :email, "メールアドレス" %>

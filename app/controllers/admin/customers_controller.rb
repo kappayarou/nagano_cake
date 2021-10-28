@@ -6,6 +6,11 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    if @customer.is_active
+      @customer_status = "有効"
+    else
+      @customer_status = "退会"
+    end
   end
 
   def edit
@@ -14,7 +19,7 @@ class Admin::CustomersController < ApplicationController
 
   def update
     customer = Customer.find(params[:id])
-    customer.update(cutomer_params)
+    customer.update(customer_params)
     redirect_to admin_customer_path(customer.id)
   end
 

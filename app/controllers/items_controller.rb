@@ -24,9 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def genre_finding
-    genre = Genre.find(params[:id])
-    @items = genre.items
-    @item_count = @items.count
+    genre = Genre.find(params[:genre_id])
+    items = genre.items
+    @items = items.page(params[:page]).per(8)
+    @item_count = items.count
   end
 
 end
